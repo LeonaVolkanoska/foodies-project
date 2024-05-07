@@ -2,6 +2,11 @@ import Link from "next/link";
 import classes from "./page.module.css";
 import ImagesSlideshow from "@/components/images/images-slideshow";
 
+export const metadata = {
+  title: "NextLevel Food",
+  description: "Delicious meals, shared by a food-loving community.",
+};
+
 export default function Home() {
   return (
     <>

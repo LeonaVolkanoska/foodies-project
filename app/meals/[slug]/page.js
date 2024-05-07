@@ -3,6 +3,19 @@ import classes from "./page.module.css";
 import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  const meal = getMeal(params.slug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
 export default function mealsPage({ params }) {
   const meal = getMeal(params.slug);
 
@@ -15,7 +28,11 @@ export default function mealsPage({ params }) {
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image src={meal.image} alt={meal.title} fill />
+          <Image
+            src={`https://volkanoskaleona-nextjs-demo-users-image.s3.amazonaws.com/${meal.image}`}
+            alt={meal.title}
+            fill
+          />
         </div>
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>
