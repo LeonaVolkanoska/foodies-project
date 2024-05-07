@@ -13,11 +13,11 @@ body {
   background: radial-gradient(#282c34, #282c34);
 }
 
-svg {
+/* svg {
   display: block;
   width: 100%;
   height: auto;
-}
+} */
 
 .not-found,
 .error {
